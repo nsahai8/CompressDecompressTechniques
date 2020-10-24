@@ -16,7 +16,6 @@ public class LogFileParser implements FileParser{
 			return file;
 		} catch (FileNotFoundException e) {
 			// TODO add error logs
-//			e.printStackTrace();
 		}
 		return null;
 	}
