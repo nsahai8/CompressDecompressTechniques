@@ -22,4 +22,5 @@ public class Application {
         service.compressFile(inputFolderPath, outputFolderPath, 0);
         service.decompressFile(outputFolderPath, "/Users/nihgupta/Desktop/testingZip1/");
     }
+
 }
