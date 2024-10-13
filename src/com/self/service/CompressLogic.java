@@ -1,36 +1,32 @@
 package com.self.service;
 
+import com.self.constants.ApplicationConstants;
 import com.self.model.CustomFile;
 
 import java.io.File;
 
 public class CompressLogic {
 
-    public String compressFile(String inputPath, String outputPath, int maxSizeinMb) {
+    public String compressFile(String inputPath, String outputPath, int maxSizeMb) {
 
-        CompressDecompressStrategies compressStrategies = CompressStrategyFactory.getCompressStrategyByType("Strategy1");
+        CompressDecompressStrategies compressStrategies = CompressStrategyFactory.getCompressStrategyByType(ApplicationConstants.DEFAULT_STRATEGY);
         if (isFolder(inputPath)) {
-            String path = compressStrategies.compressFolder(inputPath, outputPath);
-            return path;
+            return compressStrategies.compressFolder(inputPath, outputPath);
         } else {
             FileParser fp = FileParserFactory.getFileParserByFileType(inputPath);
             CustomFile file = fp.readFileFromGivenPath(inputPath);
-            String filename = compressStrategies.compressFile(file, outputPath);
-            return filename;
+            return compressStrategies.compressFile(file, outputPath);
         }
 
     }
 
     public boolean isFolder(String inputPath) {
         File folder = new File(inputPath);
-        if (folder.isDirectory()) {
-            return true;
-        }
-        return false;
+        return folder.isDirectory();
     }
 
     public void decompressFile(String inputPath, String outputPath) {
-        CompressDecompressStrategies compressStrategies = CompressStrategyFactory.getCompressStrategyByType("Strategy1");
+        CompressDecompressStrategies compressStrategies = CompressStrategyFactory.getCompressStrategyByType(ApplicationConstants.DEFAULT_STRATEGY);
 
         if (isFolder(inputPath)) {
             compressStrategies.decompressFolder(inputPath, outputPath);

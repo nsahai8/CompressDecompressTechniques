@@ -3,8 +3,8 @@ package com.self.model;
 import java.io.FileInputStream;
 
 public class CustomFile {
-    private String inputPath;
-    private FileInputStream file;
+    private final String inputPath;
+    private final FileInputStream file;
     private String outputPath;
 
     public CustomFile(String path, FileInputStream file) {
