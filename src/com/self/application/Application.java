@@ -6,18 +6,16 @@ public class Application {
 
     public static void main(String[] args) {
         // compress and decompress files
-        //TODO add path for input and output file for compress
         String inputPath = "/Users/nihgupta/Desktop/test.log";
-        String outputPath = "/Users/nihgupta/Desktop/"; //TODO add path for output file here
-        int maxSizeMb = 10;
+        String outputPath = "/Users/nihgupta/Desktop/";
+        int maxSizeinMb = 10;
 
         CompressLogic service = new CompressLogic();
-        String zipFileName = service.compressFile(inputPath, outputPath, maxSizeMb);
+        String zipfileName = service.compressFile(inputPath, outputPath, maxSizeinMb);
 
-        service.decompressFile(outputPath + zipFileName, outputPath);
+        service.decompressFile(outputPath + zipfileName, outputPath);
 
-        // decompress folders
-        // ToDo add output decompressed folder path here
+        //compress and decompress folders
         String inputFolderPath = "/Users/nihgupta/Desktop/testing/test.log";
         String outputFolderPath = "/Users/nihgupta/Desktop/testingZip/";
 

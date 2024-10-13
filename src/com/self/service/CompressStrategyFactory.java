@@ -4,7 +4,10 @@ public class CompressStrategyFactory {
 
 
     public static CompressDecompressStrategies getCompressStrategyByType(String strategyType) {
-        return new SimpleCompressDecompressStrategy();
+        if (strategyType.equalsIgnoreCase("Strategy1")) {
+            return new CompressDecompressStrategy1();
+        }
+        return null;
     }
 
 }
